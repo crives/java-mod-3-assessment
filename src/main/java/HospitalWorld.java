@@ -124,12 +124,12 @@ public class HospitalWorld {
                 String patientSpecialty = sc.nextLine();
                 patient = new Patient(patientName, patientSpecialty);
                 hospital.patients.add(patient);
-                
+                matchPatients(patient);
+
                 if (hospital.patients.size() == 5) {
                     //Print list of patients + their specialties
                     log(patientCreationComplete);
                     System.out.println(hospital.patients);
-                    matchPatients();
                     sc.nextLine();
                 }
             } catch (Exception e) {
@@ -144,13 +144,13 @@ public class HospitalWorld {
     // Was going to add an iterator or stream, sorry. Ran out of time.
     // Imports were bugging, it didn't like the lambda
     //
-    public static void matchPatients() {
+    public static void matchPatients(Patient patient) {
         System.out.println(matchingPatients);
         List<Doctor> doctorsInSpecialty = docBySpecialtyMap.get(patient.getSpecialtyNeeded());
         // Iterator<Doctor> iterator = doctorsInSpecialty.listIterator();   
-        for (Patient patient : hospital.getPatients()) {
+        // for (Patient patient : hospital.getPatients()) {
             if (doctorsInSpecialty.isEmpty()) {
-                hospital.getPatients().add(patient);
+                doctorsInSpecialty.get(0).patients.add(patient);
             }
             if (!doctorsInSpecialty.isEmpty()) {
                 if (doctorsInSpecialty.size() == 1) {
@@ -175,7 +175,7 @@ public class HospitalWorld {
                     }
                 }
             }
-        }
+        // }
         printAll();
     }
 
