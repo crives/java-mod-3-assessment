@@ -130,6 +130,7 @@ public class HospitalWorld {
                     //Print list of patients + their specialties
                     log(patientCreationComplete);
                     System.out.println(hospital.patients);
+                    printAll();
                     sc.nextLine();
                 }
             } catch (Exception e) {
@@ -175,8 +176,6 @@ public class HospitalWorld {
                     }
                 }
             }
-        // }
-        printAll();
     }
 
     public static void printAll() {
