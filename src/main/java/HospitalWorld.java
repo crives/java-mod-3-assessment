@@ -31,7 +31,7 @@ public class HospitalWorld {
     public static String askPatientSpecialty ="\nWhat specialty are they looking to be seen for?";
     public static String matchingPatients = "\nNow matching patients...";
     public static String printEverything = "\nNow, to show you the whole system:";
-    public static String askPatientAilment = "\nWhat ailment does this patient have? (Please choose from the list below with the corresponding number): \n";
+    public static String askPatientAilment = "\nWhat ailment does this patient have?";
     public static String askHealthIndex = "\nWhat is the health index of the patient according to this ailment? \n(Enter a number below):";
     public static String askNumTreatmentsToCure = "\nIn how many treatments will this ailment be cured?";
     public static String askNumTreatments = "\nHow many treatments would you like this patient to have?";

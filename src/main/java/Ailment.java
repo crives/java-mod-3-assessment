@@ -8,6 +8,7 @@ public class Ailment {
 
     public int numTreatmentsToCure;
 
+    public Ailment() {};
     public Ailment(String name, Specialty associatedSpecialty, boolean isCurable) {
         this.name = name;
         this.associatedSpecialty = associatedSpecialty;
