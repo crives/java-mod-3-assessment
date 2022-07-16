@@ -1,10 +1,17 @@
 public class Patient {
     private String name;
-    private String specialtyNeeded;
+    private Specialty specialtyNeeded;
 
-    public Patient(String name, String specialtyNeeded) {
+    private Doctor doctor;
+    private int healthIndex;
+
+    private Ailment ailment;
+
+    public Patient(String name, Specialty specialtyNeeded, int healthIndex, Ailment ailment) {
         this.name = name;
         this.specialtyNeeded = specialtyNeeded;
+        this.healthIndex = healthIndex;
+        this.ailment = ailment;
     }
 
     public String getName() {
@@ -15,16 +22,45 @@ public class Patient {
         this.name = name;
     }
 
-    public String getSpecialtyNeeded() {
+    public Specialty getSpecialtyNeeded() {
         return specialtyNeeded;
     }
 
-    public void setSpecialtyNeeded(String specialtyNeeded) {
+    public void setSpecialtyNeeded(Specialty specialtyNeeded) {
         this.specialtyNeeded = specialtyNeeded;
+    }
+
+    public int getHealthIndex() {
+        return healthIndex;
+    }
+
+    public void setHealthIndex(int healthIndex) {
+        this.healthIndex = healthIndex;
+    }
+
+    public Ailment getAilment() {
+        return ailment;
+    }
+
+    public void setAilment(Ailment ailment) {
+        this.ailment = ailment;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     @Override
     public String toString() {
-        return "Patient: " + name + ", " + "Specialty Needed: " + specialtyNeeded;
+        return "Patient{" +
+                "name='" + name + '\'' +
+                ", specialtyNeeded='" + specialtyNeeded + '\'' +
+                ", healthIndex=" + healthIndex +
+                ", ailment=" + ailment +
+                '}';
     }
 }

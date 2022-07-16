@@ -3,13 +3,16 @@ import java.util.ArrayList;
 
 public class Doctor {
     public String name;
-    public String specialty;
+    public Specialty specialty;
+
+    public int healingPower;
+
     public List<Patient> patients = new ArrayList<>();
 
     public Doctor() {
     }
 
-    public Doctor(String name, String specialty) {
+    public Doctor(String name, Specialty specialty) {
         this.name = name;
         this.specialty = specialty;
     }
@@ -22,11 +25,11 @@ public class Doctor {
         this.name = name;
     }
 
-    public String getSpecialty() {
+    public Specialty getSpecialty() {
         return specialty;
     }
 
-    public void setSpecialty(String specialty) {
+    public void setSpecialty(Specialty specialty) {
         this.specialty = specialty;
     }
 
@@ -38,8 +41,30 @@ public class Doctor {
         this.patients = patients;
     }
 
+    //
+    // TODO /////// treatPatient()
+    //
+    public void treatPatient(Patient patient) {
+
+
+    }
+
+    // TODO removePatient()
+    //
+    public void removePatient(Patient patient) {
+
+    }
+
+    public int getHealingPower() {
+        return healingPower;
+    }
+
+    public void setHealingPower(int healingPower) {
+        this.healingPower = healingPower;
+    }
+
     @Override
     public String toString() {
-        return "Doctor: " + name + ", " + "Specialty: " + specialty + ", " + "Patients: " + patients;
+        return "Doctor: " + name + ", " + specialty + ", " + "Patients: " + patients;
     }
 }
