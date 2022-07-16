@@ -13,7 +13,7 @@ public class HospitalWorld {
     public static Hospital hospital = new Hospital();
     public static Map<Specialty, List<Doctor>> docBySpecialtyMap = new HashMap<>();
 
-    public static List<Specialty> specialtyList;
+    public static List<Specialty> specialtyList = new ArrayList<>();
 
     public static boolean repeat = true;
     public static Scanner sc = new Scanner(System.in); 
@@ -38,7 +38,7 @@ public class HospitalWorld {
     public static String askIsCurable = "\nIs this ailment curable? \n(Type the number corresponding to your answer): \n1. Yes \n2. No";
     public static String askSpecialtyAilment = "\nWhat is an ailment related to this specialty?";
 
-    public static String displayHealthIndexMsg = "\nA patient with this ailment has a health index of:";
+    public static String displayHealthIndexMsg = "\nA patient with this ailment has a health index of: ";
     public static FileReader fileReader;
     public static final String JSONFILE = "myHospital.json";
 
@@ -106,8 +106,8 @@ public class HospitalWorld {
                 log(askDoctorSpecialty);
                 String doctorSpecialtyName = sc.nextLine();
                 specialty = new Specialty(doctorSpecialtyName);
+                specialtyList.add(specialty);
                 doctor = new Doctor(doctorName, specialty);
-                hospital.addSpecialtyToList(specialty);
                 createDoctorAilments(doctor);
                 numDoctors++;
 
@@ -121,11 +121,6 @@ public class HospitalWorld {
                 }
                 if (numDoctors == 3) {
                     log(doctorCreationComplete);
-
-                    // Create a list of specialties
-                    Set<Specialty> specialties = docBySpecialtyMap.keySet();
-                    specialties.forEach((specialty) -> specialtyList.add(specialty));
-
                     // Print out doctors
                     docBySpecialtyMap.entrySet().forEach(entry -> {
                         System.out.println(entry.getKey() + " " + entry.getValue());
@@ -153,6 +148,9 @@ public class HospitalWorld {
         sc.nextLine();
     }
 
+// Create a list of specialties
+//Set<Specialty> specialties = docBySpecialtyMap.keySet();
+//        specialties.forEach((specialty) -> specialtyList.add(specialty));
     public static void createPatients() {
         log(askPatientNames);
         while (hospital.patients.size() <= 5) {
@@ -163,18 +161,18 @@ public class HospitalWorld {
                 String patientName = sc.nextLine();
                 log(askPatientSpecialty);
                 String ptSpecialtyName = sc.nextLine();
+
                 Specialty ptSpecialty = new Specialty(ptSpecialtyName);
                 log(askPatientAilment);
-
                 // Print Ailments
                 ptSpecialty.printAilmentsString();
 
-                // User enters chosen ailment name
-                int ailmentIndex = sc.nextInt();
-                Ailment ptAilment = ptSpecialty.getAilmentsList().get(ailmentIndex - 1);
+                String ptAilmentName = sc.nextLine();
+                Ailment ptAilment = specialty.getAilmentFromList(ptAilmentName);
 
                 int healthIndex = ptAilment.isCurable() ? (100 - (ptAilment.getNumTreatmentsToCure() * 10)) : 50;
                 log(displayHealthIndexMsg + healthIndex);
+
                 // Ask how many treatments the pt would like to have
                 log(askNumTreatments);
                 // TODO Display health index after each treatment

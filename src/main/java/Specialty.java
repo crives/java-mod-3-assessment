@@ -25,6 +25,17 @@ public class Specialty {
         return ailmentsList;
     }
 
+    public Ailment getAilmentFromList(String ailmentName) {
+        Ailment ailmentToReturn = new Ailment();
+
+        for (Ailment ail : ailmentsList) {
+            if (ail.getName().equals(ailmentName)) {
+                ailmentToReturn = ail;
+            }
+        }
+        return ailmentToReturn;
+    }
+
     public void addAilment(Ailment ailment) {
         this.ailmentsList.add(ailment);
     }

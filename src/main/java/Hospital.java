@@ -12,7 +12,7 @@ public class Hospital {
     public Hospital(String name, List<Patient> patients) {
         this.name = name;
         this.patients = patients;
-        specialtyContainer = new SpecialtyContainer();
+//        specialtyContainer = new SpecialtyContainer();
     }
 
     public String getName() {
@@ -31,17 +31,17 @@ public class Hospital {
         this.patients = patients;
     }
 
-    public SpecialtyContainer getSpecialtyContainer() {
-        return specialtyContainer;
-    }
-
-    public List<Specialty> getSpecialtyList(SpecialtyContainer specialtyContainer) {
-        return specialtyContainer.getSpecialties();
-    }
-
-    public void addSpecialtyToList(Specialty specialty) {
-        specialtyContainer.addSpecialty(specialty);
-    }
+//    public SpecialtyContainer getSpecialtyContainer() {
+//        return specialtyContainer;
+//    }
+//
+//    public List<Specialty> getSpecialtyList() {
+//        return specialtyContainer.getSpecialties();
+//    }
+//
+//    public void addSpecialtyToList(Specialty specialty) {
+//        specialtyContainer.addSpecialty(specialty);
+//    }
 
     @Override
     public String toString() {
